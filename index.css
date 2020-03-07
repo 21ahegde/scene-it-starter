@@ -14,3 +14,13 @@ body {
 	margin-top: 20px;
 }
 
+#movies-container {
+	display: flex;
+	flex-direction: row;
+	flex-flow: wrap;
+  }
+
+  .movie {
+	  text-align: center;
+	  margin: 15px;
+  }
