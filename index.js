@@ -16,14 +16,14 @@ document.addEventListener('DOMContentLoaded', function() {
             `
        }).join(""); 
        return movieHTML; 
-    }
+    } 
     var moviesContainer = document.getElementById("movies-container");
-    document.getElementById("movies-container").addEventListener('search', function(e){
-        e.preventDefault();
-    });
-    /*
+    document.getElementById('search-form').addEventListener('submit', function(e){
+    e.preventDefault();
     moviesContainer.innerHTML = renderMovies(movieData);
-    */
+   })
+
 });
+
 
 
