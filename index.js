@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   <h5 class="card-title">${currentMovie.Title}</h5>
                   <p class="card-text">${currentMovie.Year}</p>
                   <p class="card-text">${currentMovie.Type}</p>							  
-                  <a href="#" class="btn btn-primary">Add</a>
+                  <a href="#" class="btn btn-primary">Add Movie</a>
                 </div>
               </div>
         </div>        
@@ -24,6 +24,3 @@ document.addEventListener('DOMContentLoaded', function() {
    })
 
 });
-
-
-
