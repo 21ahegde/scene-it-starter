@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   <h5 class="card-title">${currentMovie.Title}</h5>
                   <p class="card-text">${currentMovie.Year}</p>
                   <p class="card-text">${currentMovie.Type}</p>							  
-                  <a href="#" class="btn btn-primary">Add Movie</a>
+                  <a href="#" class="btn btn-primary" onclick="saveToWatchlist('${currentMovie.imdbID}')">Add Movie</a>
                 </div>
               </div>
         </div>        
@@ -24,3 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
    })
 
 });
+
+    function saveToWatchlist(imdbID){
+        var movie = movieData.find(function (currentMovie){
+            return currentMovie.imdbID == imdbID;
+        });
+    }
