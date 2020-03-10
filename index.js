@@ -26,7 +26,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
     function saveToWatchlist(imdbID){
-        var movie = movieData.find(function (currentMovie){
+        var movie = movieData.find(function(currentMovie){
             return currentMovie.imdbID == imdbID;
-        });
+               });
+            var watchlistJSON = localStorage.getItem('watchlist');
+            var watchlist = JSON.parse(watchlistJSON);
+            if(watchlist === null) {
+                var watchlist = [];
+            }
+                watchlist.push(movie);
+                watchlistJSON = JSON.stringify(watchlist);
+                localStorage.setItem('watchlist', watchlistJSON);     
     }
