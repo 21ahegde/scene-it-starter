@@ -1,4 +1,7 @@
+
+var movies;
 document.addEventListener('DOMContentLoaded', function() { 
+   
     function renderMovies (movieArray){
        var movieHTML = movieArray.map(function (currentMovie){
             return`
@@ -17,16 +20,28 @@ document.addEventListener('DOMContentLoaded', function() {
        }).join(""); 
        return movieHTML; 
     } 
+    
     var moviesContainer = document.getElementById("movies-container");
     document.getElementById('search-form').addEventListener('submit', function(e){
     e.preventDefault();
+        var searchString = document.getElementById('search-bar').value;
+        var urlEncodedSearchString = encodeURIComponent(searchString); 
+        axios.get("http://www.omdbapi.com/?apikey=5bfa8678&s=" + urlEncodedSearchString).then(function(response){
+            debugger
+            var movieHTML = renderMovies(response.data.Search);
+            moviesContainer.innerHTML = movieHTML;
+            movies = response.data.Search
+            console.log(response.data);
+        })
     moviesContainer.innerHTML = renderMovies(movieData);
    })
+   
+ 
 
 });
 
     function saveToWatchlist(imdbID){
-        var movie = movieData.find(function(currentMovie){
+        var movie = movies.find(function(currentMovie){
             return currentMovie.imdbID == imdbID;
                });
             var watchlistJSON = localStorage.getItem('watchlist');
